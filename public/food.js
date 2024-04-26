@@ -17,7 +17,10 @@ list.forEach((list) => {
     e.preventDefault();
     const id = e.target.href.split("#").at(1);
     if (!id) return;
-    navigate();
+    if (e.target.classList.contains("footer_link")) {
+      nav.classList.add("left-full");
+      if (nav.classList.contains("left-1/2")) navigate();
+    } else navigate();
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
   });
 });
